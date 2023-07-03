@@ -1,0 +1,73 @@
+[
+  {
+    "Name": "Linie 852", // Name that is displayed in the User Interface.
+    "ConfigEOL": { // 'ConfigEOL' is the configuration for the EoL-Test database.
+      "Host": "127.0.0.1",
+      "Port": 3307,
+      "Username": "root",
+      "Password": "Gruner1357#",
+      "Database": "linie_852"
+    },
+    "FromTable": { // 'FromTable' is the table where the EoL-Test data is stored.
+      "Table": "prad",
+      "Columns": [ "Seriennummer", "Teilenummer" ] // The 'Columns' are always in the order ["Collumn name of 'Serienummer'", "Collumn name of 'Teilennummer'"].
+    },
+    "ToTable": { // 'ToTable' is the table where the EoL-Test data is stored.
+      "Table": "prad_rework",
+      "Columns": [ "Seriennummer", "Teilenummer" ] // The 'Columns' are always in the order ["Collumn name of 'Serienummer'", "Collumn name of 'Teilennummer'"].
+    },
+    "UnwantedColumns": [ "ID", "Datum" ], // 'UnwantedColumns' are Columns, which shold not be copied to the 'ToTable'.
+    "TablesToDelete": [ // 'TablesToDelete' is a list of all tables, which should be deleted after the EoL-Test data is stored.
+      {
+        "Table": "abblasen",
+        "Columns": [ "Seriennummer" ] // The 'Columns' are always in the order ["Collumn name of 'Serienummer'", "Collumn name of 'Teilennummer'"]. Teilenummer is optional.
+      },
+      {
+        "Table": "stif_kbka_eindv",
+        "Columns": [ "Seriennummer_Grundplatte" ]
+      },
+      {
+        "Table": "kontakte_reinigen",
+        "Columns": [ "Seriennummer" ]
+      },
+      {
+        "Table": "mgnt_eindv",
+        "Columns": [ "Seriennummer_Grundplatte" ]
+      }
+    ],
+    "ReworkStatus": [ // 'ReworkStatus' is a list of all possibilities the EoL-Test can have as a Status.
+      {
+        "Key": 0,
+        "Value": "Keine Angabe"
+      },
+      {
+        "Key": 1,
+        "Value": "Erfolgreich"
+      },
+      {
+        "Key": 2,
+        "Value": "Ausfallgrund 1"
+      },
+      {
+        "Key": 3,
+        "Value": "Ausfallgrund 2"
+      },
+      {
+        "Key": 4,
+        "Value": "Ausfallgrund 3"
+      },
+      {
+        "Key": 5,
+        "Value": "Ausfallgrund 4"
+      },
+      {
+        "Key": 6,
+        "Value": "Ausfallgrund 5"
+      },
+      {
+        "Key": 7,
+        "Value": "Ausfallgrund 6"
+      }
+    ]
+  }
+]
